@@ -2,7 +2,7 @@
 
 Prototype réalisé pour le TP « Stratégie IA » (B3 DEV, dossier 5).
 
-Pendant l'entretien, le conseiller répond avec la famille à 12 questions : lieu du décès, couple, enfants mineurs, activité, aides, logement, contrats, véhicule, crédits, assurances, testament et date du décès. L'outil sélectionne parmi 28 démarches celles qui s'appliquent, les regroupe par délai (24 h, 48 h, dès que possible, 30 jours, 3 mois, 6 mois, déclaration de revenus, sans délai, si nécessaire), calcule les dates limites à partir de la date du décès et produit un document sobre à imprimer et à remettre à la famille.
+Pendant l'entretien, le conseiller répond avec la famille à 12 questions : lieu du décès, couple, enfants mineurs, activité, aides, logement, contrats, véhicule, crédits, assurances, testament et date du décès. L'outil sélectionne parmi 26 démarches celles qui s'appliquent, les regroupe par délai (24 h, 48 h, dès que possible, 30 jours, 3 mois, 6 mois, déclaration de revenus, sans délai, si nécessaire), calcule les dates limites à partir de la date du décès et produit un document sobre à imprimer et à remettre à la famille.
 
 Les démarches toujours présentes, quelle que soit la situation, sont la mairie (ou le consulat), les banques, la CPAM, la mutuelle, les impôts et les comptes en ligne.
 
@@ -38,7 +38,7 @@ node --test tests/*.test.js
 
 ```
 index.html            écran du conseiller
-src/demarches.js      données (28 démarches, 9 délais) et moteur de règles : selectionner(), grouper(), valider()
+src/demarches.js      données (26 démarches, 9 délais) et moteur de règles : selectionner(), grouper(), valider()
 src/cas-de-test.js    4 situations de test avec le résultat attendu (vérifié à la main)
 src/app.js            interface : saisie, affichage, impression
 src/style.css         styles écran et impression
