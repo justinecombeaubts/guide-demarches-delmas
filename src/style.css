@@ -98,6 +98,8 @@ form h2:first-child { border-top: 0; padding-top: 0; }
 .trad-fr { font-size: .8rem !important; color: var(--doux) !important; font-style: italic; margin: .25rem 0 0 !important; }
 .doc-groupe h3 .delai { font-size: .8rem; }
 .doc-relecture { margin-top: 1.2rem; font-family: system-ui, sans-serif; font-size: .8rem; color: var(--doux); border-top: 1px dashed var(--trait); padding-top: .6rem; }
+.validation { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--trait); }
+.trad-fr[dir="ltr"] { text-align: left; }
 @media print {
   body { background: #fff; }
   .no-print { display: none !important; }

@@ -76,17 +76,17 @@
       <p class="trad-fr">Les démarches à venir. Ce document rassemble les démarches à effectuer${n ? ` à la suite du décès de ${n}` : ""}, classées selon leurs délais.</p>
       ${groupes.map((g) => `
         <section class="doc-groupe">
-          <h3><span lang="${lang}" dir="${L.dir}">${T.DELAIS[g.delai][lang]}${g.echeance ? ` · ${D.avant(fmtDate(g.echeance, L.locale))}` : ""}</span>
+          <h3 dir="${L.dir}"><span lang="${lang}" dir="${L.dir}">${T.DELAIS[g.delai][lang]}${g.echeance ? ` · ${D.avant(fmtDate(g.echeance, L.locale))}` : ""}</span>
             <span class="delai">${esc(g.libelle)}${g.echeanceTexte ? ` · ${esc(g.echeanceTexte)}` : ""}</span></h3>
           <ol class="doc-liste">
             ${g.demarches.map((d) => {
               const [titre, detail] = T.DEMARCHES[d.id][lang];
               return `
-              <li>
+              <li dir="${L.dir}">
                 <span class="case" aria-hidden="true"></span>
                 <div>
                   <div lang="${lang}" dir="${L.dir}" class="trad"><strong>${titre}</strong><p>${detail}</p></div>
-                  <p class="trad-fr"><strong>${esc(d.titre)}</strong> · ${esc(d.organisme)}. ${esc(d.detail)}</p>
+                  <p class="trad-fr" lang="fr" dir="ltr"><strong>${esc(d.titre)}</strong> · ${esc(d.organisme)}. ${esc(d.detail)}</p>
                 </div>
               </li>`; }).join("")}
           </ol>
