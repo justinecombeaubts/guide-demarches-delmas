@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guide des démarches — Pompes funèbres Delmas</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <header class="barre no-print">
+    <div>
+      <strong>Pompes funèbres Delmas</strong>
+      <span class="sous-titre">Guide des démarches · outil conseiller</span>
+    </div>
+    <div class="tests">
+      <label for="cas">Données de test</label>
+      <select id="cas"><option value="">— choisir un cas —</option></select>
+      <button id="remplissage" type="button" class="btn-test" title="Remplit le formulaire avec une situation fictive tirée au hasard">Remplissage de test</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Saisie de la situation, avec la famille -->
+    <form id="formulaire" class="panneau no-print" novalidate>
+      <h2>1 · Le décès</h2>
+      <label>Nom de la personne décédée
+        <input id="defunt" type="text" placeholder="Prénom Nom" autocomplete="off" />
+      </label>
+      <label>Date du décès
+        <input id="dateDeces" type="date" />
+      </label>
+      <fieldset><legend>Lieu du décès</legend>
+        <div class="choix" data-champ="lieuDeces">
+          <button type="button" data-val="france">France</button>
+          <button type="button" data-val="etranger">Étranger</button>
+        </div>
+      </fieldset>
+
+      <h2>2 · La famille</h2>
+      <fieldset><legend>Situation de couple</legend>
+        <div class="choix" data-champ="couple">
+          <button type="button" data-val="marie">Marié(e)</button>
+          <button type="button" data-val="pacse">Pacsé(e)</button>
+          <button type="button" data-val="concubinage">Concubinage</button>
+          <button type="button" data-val="seul">Seul(e)</button>
+        </div>
+      </fieldset>
+      <fieldset><legend>Enfants mineurs à charge</legend>
+        <div class="choix" data-champ="enfantsMineurs">
+          <button type="button" data-val="true">Oui</button>
+          <button type="button" data-val="false">Non</button>
+        </div>
+      </fieldset>
+
+      <h2>3 · L'activité et les aides</h2>
+      <fieldset><legend>Activité</legend>
+        <div class="choix grille3" data-champ="activite">
+          <button type="button" data-val="salarie">Salarié(e)</button>
+          <button type="button" data-val="fonctionnaire">Fonctionnaire</button>
+          <button type="button" data-val="independant">Indépendant(e)</button>
+          <button type="button" data-val="retraite">Retraité(e)</button>
+          <button type="button" data-val="demandeur">En recherche d'emploi</button>
+          <button type="button" data-val="autre">Autre</button>
+        </div>
+      </fieldset>
+      <fieldset><legend>Aides perçues <span class="aide">(cochez ce qui s'applique)</span></legend>
+        <div class="cases" data-liste="aides">
+          <label><input type="checkbox" value="apl" /> APL</label>
+          <label><input type="checkbox" value="rsa" /> RSA</label>
+          <label><input type="checkbox" value="aah" /> AAH</label>
+          <label><input type="checkbox" value="invalidite" /> Pension d'invalidité</label>
+        </div>
+      </fieldset>
+
+      <h2>4 · Le patrimoine et les contrats</h2>
+      <fieldset><legend>Logement</legend>
+        <div class="choix" data-champ="logement">
+          <button type="button" data-val="proprietaire">Propriétaire</button>
+          <button type="button" data-val="locataire">Locataire</button>
+          <button type="button" data-val="autre">Autre</button>
+        </div>
+      </fieldset>
+      <fieldset><legend>Au nom de la personne <span class="aide">(cochez ce qui s'applique)</span></legend>
+        <div class="cases">
+          <label><input type="checkbox" data-bool="contrats" /> Contrats (énergie, eau, téléphone, internet, abonnements)</label>
+          <label><input type="checkbox" data-bool="vehicule" /> Véhicule</label>
+          <label><input type="checkbox" data-bool="credits" /> Crédit en cours</label>
+          <label><input type="checkbox" data-bool="testament" /> Testament ou donation</label>
+        </div>
+      </fieldset>
+      <fieldset><legend>Assurances <span class="aide">(cochez ce qui s'applique)</span></legend>
+        <div class="cases" data-liste="assurances">
+          <label><input type="checkbox" value="vie" /> Assurance-vie</label>
+          <label><input type="checkbox" value="obseques" /> Contrat obsèques</label>
+          <label><input type="checkbox" value="deces" /> Assurance décès</label>
+        </div>
+      </fieldset>
+
+      <h2>5 · Le contact</h2>
+      <label>Conseiller
+        <input id="conseiller" type="text" placeholder="Prénom" />
+      </label>
+      <label>Téléphone de l'agence
+        <input id="telephone" type="tel" placeholder="01 23 45 67 89" />
+      </label>
+    </form>
+
+    <!-- Le document remis à la famille -->
+    <section class="panneau apercu">
+      <div class="actions no-print">
+        <h2 id="compteur">Le document pour la famille</h2>
+        <label class="relu"><input type="checkbox" id="relu" /> J'ai relu ce document avec la famille</label>
+        <button id="imprimer" type="button" disabled>Imprimer / PDF</button>
+      </div>
+      <article id="document" class="document" aria-live="polite"></article>
+    </section>
+  </main>
+
+  <script src="src/demarches.js"></script>
+  <script src="src/cas-de-test.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
