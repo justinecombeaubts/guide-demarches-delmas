@@ -103,7 +103,7 @@ form h2:first-child { border-top: 0; padding-top: 0; }
 .tr-form { display: block; font-size: .82em; font-weight: normal; color: var(--doux); text-transform: none; letter-spacing: normal; margin-top: .1rem; }
 .tr-form[dir="rtl"] { font-family: "Noto Naskh Arabic", "Geeza Pro", Arial, serif; font-size: .95em; }
 .tr-form[dir="rtl"] { text-align: left; }
-button .tr-form { color: inherit; opacity: .85; text-align: center; }
+button .tr-form, button .tr-form[dir="rtl"] { color: inherit; opacity: .85; text-align: center; }
 .aide .tr-form { display: inline; margin-left: .3rem; }
 @media print {
   body { background: #fff; }
