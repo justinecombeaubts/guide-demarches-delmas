@@ -100,6 +100,11 @@ form h2:first-child { border-top: 0; padding-top: 0; }
 .doc-relecture { margin-top: 1.2rem; font-family: system-ui, sans-serif; font-size: .8rem; color: var(--doux); border-top: 1px dashed var(--trait); padding-top: .6rem; }
 .validation { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--trait); }
 .trad-fr[dir="ltr"] { text-align: left; }
+.tr-form { display: block; font-size: .82em; font-weight: normal; color: var(--doux); text-transform: none; letter-spacing: normal; margin-top: .1rem; }
+.tr-form[dir="rtl"] { font-family: "Noto Naskh Arabic", "Geeza Pro", Arial, serif; font-size: .95em; }
+.tr-form[dir="rtl"] { text-align: left; }
+button .tr-form { color: inherit; opacity: .85; text-align: center; }
+.aide .tr-form { display: inline; margin-left: .3rem; }
 @media print {
   body { background: #fff; }
   .no-print { display: none !important; }

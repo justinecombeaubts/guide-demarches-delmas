@@ -125,3 +125,8 @@ test("traductions : chaque démarche et chaque délai existent en arabe, turc et
     for (const k of ["titre", "remis", "avant", "intro", "contact", "note"]) assert.ok(T.DOCUMENT[lang][k], `${k} en ${lang}`);
   }
 });
+
+test("traductions du formulaire : chaque entrée existe dans les 3 langues", () => {
+  const T = require("../src/traductions.js");
+  for (const [cle, t] of Object.entries(T.FORMULAIRE)) for (const lang of Object.keys(T.LANGUES)) assert.ok(t[lang], `${cle} en ${lang}`);
+});

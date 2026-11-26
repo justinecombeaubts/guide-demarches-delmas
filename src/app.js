@@ -96,6 +96,25 @@
       <p class="doc-relecture">Traduction (${L.nomFr}) relue par : ____________________ &nbsp; le : ____________</p>`;
   }
 
+
+  // Formulaire lu avec la famille : traduction sous chaque question et chaque réponse (sections 1 à 4).
+  function traduireFormulaire(lang) {
+    const form = $("formulaire");
+    form.querySelectorAll(".tr-form").forEach((e) => e.remove());
+    if (lang === "fr") return;
+    const T = window.TRADUCTIONS, L = T.LANGUES[lang];
+    form.querySelectorAll("h2, legend, label, button, .aide").forEach((el) => {
+      const tn = [...el.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim());
+      if (!tn) return;
+      const cle = tn.textContent.trim().replace(/^\d+\s*·\s*/, "");
+      const t = T.FORMULAIRE[cle] && T.FORMULAIRE[cle][lang];
+      if (!t) return;
+      const sp = document.createElement("span");
+      sp.className = "tr-form"; sp.lang = lang; sp.dir = L.dir; sp.textContent = t;
+      tn.after(sp);
+    });
+  }
+
   function rendre() {
     const s = lireSituation();
     const manque = valider(s);
@@ -138,7 +157,7 @@
   }
 
   $("formulaire").addEventListener("change", rendre);
-  $("langue").addEventListener("change", rendre);
+  $("langue").addEventListener("change", () => { traduireFormulaire($("langue").value); rendre(); });
   CHAMPS_TEXTE.forEach((id) => $(id).addEventListener("input", rendre));
 
   // Contrôle humain : impression seulement après relecture avec la famille

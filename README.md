@@ -10,7 +10,7 @@ Les démarches toujours présentes, quelle que soit la situation, sont la mairie
 
 ## Langues (nouvelle contrainte)
 
-Une nouvelle agence accueille beaucoup de familles qui parlent arabe, turc ou portugais. Le menu **« Langue de la famille »** produit un document **bilingue** : la langue de la famille d'abord, le français en dessous, pour que le conseiller puisse toujours relire avant de remettre le document. L'arabe s'affiche de droite à gauche.
+Une nouvelle agence accueille beaucoup de familles qui parlent arabe, turc ou portugais. Le menu **« Langue de la famille »** traduit aussi le formulaire, lu avec la famille (une traduction sous chaque question et chaque réponse), et produit un document **bilingue** : la langue de la famille d'abord, le français en dessous, pour que le conseiller puisse toujours relire avant de remettre le document. L'arabe s'affiche de droite à gauche.
 
 Les traductions sont des **textes fixes** (`src/traductions.js`), préparés une fois pour toutes, jamais générés pendant l'entretien. Dans ce prototype ce sont des brouillons : ils doivent être validés par un relecteur natif avant la mise en service. Le document imprimé porte une ligne « Traduction relue par … le … », et l'écran du conseiller affiche un rappel.
 

@@ -186,7 +186,55 @@
     },
   };
 
-  const api = { LANGUES, DEMARCHES, DELAIS, DOCUMENT };
+
+  // Le formulaire, lu avec la famille : une traduction s'affiche sous chaque question et chaque réponse.
+  // Clé = le texte français exact de l'écran (sans le numéro de section).
+  const FORMULAIRE = {
+    "Le décès":                    { ar: "الوفاة", tr: "Ölüm", pt: "O óbito" },
+    "La famille":                  { ar: "العائلة", tr: "Aile", pt: "A família" },
+    "L'activité et les aides":     { ar: "النشاط والإعانات", tr: "Çalışma durumu ve yardımlar", pt: "A atividade e os apoios" },
+    "Le patrimoine et les contrats": { ar: "الممتلكات والعقود", tr: "Mal varlığı ve sözleşmeler", pt: "O património e os contratos" },
+    "Nom de la personne décédée":  { ar: "اسم الشخص المتوفى", tr: "Vefat eden kişinin adı", pt: "Nome da pessoa falecida" },
+    "Date du décès":               { ar: "تاريخ الوفاة", tr: "Ölüm tarihi", pt: "Data do óbito" },
+    "Lieu du décès":               { ar: "مكان الوفاة", tr: "Ölüm yeri", pt: "Local do óbito" },
+    "France":                      { ar: "فرنسا", tr: "Fransa", pt: "França" },
+    "Étranger":                    { ar: "خارج فرنسا", tr: "Yurt dışı", pt: "Estrangeiro" },
+    "Situation de couple":         { ar: "الوضع الزوجي", tr: "Medeni durum", pt: "Situação conjugal" },
+    "Marié(e)":                    { ar: "متزوج(ة)", tr: "Evli", pt: "Casado(a)" },
+    "Pacsé(e)":                    { ar: "مرتبط(ة) بعقد PACS", tr: "PACS ile bağlı", pt: "Parceria registada (PACS)" },
+    "Concubinage":                 { ar: "مساكنة دون زواج", tr: "Evlilik dışı birliktelik", pt: "União de facto" },
+    "Seul(e)":                     { ar: "أعزب / عزباء", tr: "Bekâr", pt: "Sozinho(a)" },
+    "Enfants mineurs à charge":    { ar: "أطفال قاصرون مُعالون", tr: "Bakmakla yükümlü reşit olmayan çocuklar", pt: "Filhos menores a cargo" },
+    "Oui":                         { ar: "نعم", tr: "Evet", pt: "Sim" },
+    "Non":                         { ar: "لا", tr: "Hayır", pt: "Não" },
+    "Activité":                    { ar: "النشاط المهني", tr: "Çalışma durumu", pt: "Atividade" },
+    "Salarié(e)":                  { ar: "أجير(ة)", tr: "Ücretli çalışan", pt: "Trabalhador(a) por conta de outrem" },
+    "Fonctionnaire":               { ar: "موظف(ة) حكومي(ة)", tr: "Devlet memuru", pt: "Funcionário(a) público(a)" },
+    "Indépendant(e)":              { ar: "عامل(ة) مستقل(ة)", tr: "Serbest çalışan", pt: "Trabalhador(a) independente" },
+    "Retraité(e)":                 { ar: "متقاعد(ة)", tr: "Emekli", pt: "Reformado(a)" },
+    "En recherche d'emploi":       { ar: "باحث(ة) عن عمل", tr: "İş arıyor", pt: "À procura de emprego" },
+    "Autre":                       { ar: "أخرى", tr: "Diğer", pt: "Outro" },
+    "Aides perçues":               { ar: "الإعانات المتلقاة", tr: "Alınan yardımlar", pt: "Apoios recebidos" },
+    "APL":                         { ar: "مساعدة السكن (APL)", tr: "Konut yardımı (APL)", pt: "Apoio à habitação (APL)" },
+    "RSA":                         { ar: "دخل التضامن (RSA)", tr: "Asgari gelir desteği (RSA)", pt: "Rendimento de solidariedade (RSA)" },
+    "AAH":                         { ar: "إعانة البالغين ذوي الإعاقة (AAH)", tr: "Engelli yetişkin yardımı (AAH)", pt: "Subsídio para adultos com deficiência (AAH)" },
+    "Pension d'invalidité":        { ar: "معاش العجز", tr: "Malullük aylığı", pt: "Pensão de invalidez" },
+    "Logement":                    { ar: "السكن", tr: "Konut", pt: "Habitação" },
+    "Propriétaire":                { ar: "مالك(ة)", tr: "Ev sahibi", pt: "Proprietário(a)" },
+    "Locataire":                   { ar: "مستأجر(ة)", tr: "Kiracı", pt: "Arrendatário(a)" },
+    "Au nom de la personne":       { ar: "باسم الشخص", tr: "Kişinin adına", pt: "Em nome da pessoa" },
+    "Contrats (énergie, eau, téléphone, internet, abonnements)": { ar: "عقود (كهرباء، ماء، هاتف، إنترنت، اشتراكات)", tr: "Sözleşmeler (enerji, su, telefon, internet, abonelikler)", pt: "Contratos (energia, água, telefone, internet, assinaturas)" },
+    "Véhicule":                    { ar: "مركبة", tr: "Araç", pt: "Veículo" },
+    "Crédit en cours":             { ar: "قرض جارٍ", tr: "Devam eden kredi", pt: "Crédito em curso" },
+    "Testament ou donation":       { ar: "وصية أو هبة", tr: "Vasiyetname veya bağış", pt: "Testamento ou doação" },
+    "Assurances":                  { ar: "التأمينات", tr: "Sigortalar", pt: "Seguros" },
+    "Assurance-vie":               { ar: "تأمين على الحياة", tr: "Hayat sigortası", pt: "Seguro de vida" },
+    "Contrat obsèques":            { ar: "عقد جنازة مسبق", tr: "Cenaze sözleşmesi", pt: "Contrato de funeral" },
+    "Assurance décès":             { ar: "تأمين الوفاة", tr: "Ölüm sigortası", pt: "Seguro de morte" },
+    "(cochez ce qui s'applique)":  { ar: "(ضعوا علامة على ما ينطبق)", tr: "(uygun olanları işaretleyin)", pt: "(assinale o que se aplica)" },
+  };
+
+  const api = { LANGUES, DEMARCHES, DELAIS, DOCUMENT, FORMULAIRE };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else global.TRADUCTIONS = api;
 })(typeof window !== "undefined" ? window : globalThis);
