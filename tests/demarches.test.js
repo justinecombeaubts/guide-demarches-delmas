@@ -112,3 +112,16 @@ test("échéances en fin de mois : pas de débordement sur le mois suivant", () 
   assert.equal(echeance("2027-08-31", { mois: 6 }).toISOString().slice(0, 10), "2028-02-29");
   assert.equal(echeance("2026-12-31", { mois: 3 }).toISOString().slice(0, 10), "2027-03-31");
 });
+
+test("traductions : chaque démarche et chaque délai existent en arabe, turc et portugais", () => {
+  const { DELAIS } = require("../src/demarches.js");
+  const T = require("../src/traductions.js");
+  for (const lang of Object.keys(T.LANGUES)) {
+    for (const d of DEMARCHES) {
+      const t = T.DEMARCHES[d.id] && T.DEMARCHES[d.id][lang];
+      assert.ok(t && t[0] && t[1], `${d.id} en ${lang}`);
+    }
+    for (const k of Object.keys(DELAIS)) assert.ok(T.DELAIS[k][lang], `délai ${k} en ${lang}`);
+    for (const k of ["titre", "remis", "avant", "intro", "contact", "note"]) assert.ok(T.DOCUMENT[lang][k], `${k} en ${lang}`);
+  }
+});

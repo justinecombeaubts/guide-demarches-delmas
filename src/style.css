@@ -90,6 +90,14 @@ form h2:first-child { border-top: 0; padding-top: 0; }
 
 @media (max-width: 820px) { main { grid-template-columns: 1fr; } }
 
+.langue { display: flex; align-items: center; gap: .5rem; font-family: system-ui, sans-serif; font-size: .9rem; }
+.langue select { padding: .35rem .5rem; border-radius: 6px; border: 1px solid var(--trait); font-size: .9rem; }
+.alerte-trad { background: #FFF7E0; border: 1px dashed #b08a3e; border-radius: 8px; padding: .5rem .8rem; font-family: system-ui, sans-serif; font-size: .85rem; color: #6b5323; margin: 0 0 .8rem; }
+.trad[dir="rtl"], [dir="rtl"] { text-align: right; }
+.trad[dir="rtl"] { font-family: "Noto Naskh Arabic", "Geeza Pro", "Arial", serif; font-size: 1.08em; }
+.trad-fr { font-size: .8rem !important; color: var(--doux) !important; font-style: italic; margin: .25rem 0 0 !important; }
+.doc-groupe h3 .delai { font-size: .8rem; }
+.doc-relecture { margin-top: 1.2rem; font-family: system-ui, sans-serif; font-size: .8rem; color: var(--doux); border-top: 1px dashed var(--trait); padding-top: .6rem; }
 @media print {
   body { background: #fff; }
   .no-print { display: none !important; }

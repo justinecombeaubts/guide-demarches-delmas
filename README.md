@@ -8,6 +8,12 @@ Les démarches toujours présentes, quelle que soit la situation, sont la mairie
 
 ![Capture](capture.png)
 
+## Langues (nouvelle contrainte)
+
+Une nouvelle agence accueille beaucoup de familles qui parlent arabe, turc ou portugais. Le menu **« Langue de la famille »** produit un document **bilingue** : la langue de la famille d'abord, le français en dessous, pour que le conseiller puisse toujours relire avant de remettre le document. L'arabe s'affiche de droite à gauche.
+
+Les traductions sont des **textes fixes** (`src/traductions.js`), préparés une fois pour toutes, jamais générés pendant l'entretien. Dans ce prototype ce sont des brouillons : ils doivent être validés par un relecteur natif avant la mise en service. Le document imprimé porte une ligne « Traduction relue par … le … », et l'écran du conseiller affiche un rappel.
+
 ## Lancer
 
 Aucune installation, aucune clé d'API. Il suffit d'ouvrir `index.html` dans un navigateur.
@@ -46,4 +52,4 @@ tests/                tests automatiques (node:test)
 - Les règles de couple sont simplifiées : la réversion et le livret de famille ne concernent que le mariage, la déclaration du foyer le mariage et le PACS. Les situations de divorce ou de remariage ne sont pas couvertes.
 - Si une case n'est pas cochée, la réponse est considérée comme « non » : un oubli fait disparaître une démarche, d'où la relecture obligatoire.
 - Pas d'enregistrement : rien n'est stocké, ce qui est voulu pour la confidentialité mais empêche tout suivi ou rappel.
-- Pas de version anglaise ni d'autres langues.
+- Les traductions (arabe, turc, portugais) sont des brouillons à faire valider par un relecteur natif. Pour la CAF, les assurances et le notaire, la version traduite est un texte général, le détail exact reste en français.

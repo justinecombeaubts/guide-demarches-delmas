@@ -109,14 +109,24 @@
     <section class="panneau apercu">
       <div class="actions no-print">
         <h2 id="compteur">Le document pour la famille</h2>
+        <label class="langue">Langue de la famille
+          <select id="langue">
+            <option value="fr">Français</option>
+            <option value="ar">Arabe · العربية (+ français)</option>
+            <option value="tr">Turc · Türkçe (+ français)</option>
+            <option value="pt">Portugais · Português (+ français)</option>
+          </select>
+        </label>
         <label class="relu"><input type="checkbox" id="relu" /> J'ai relu ce document avec la famille</label>
         <button id="imprimer" type="button" disabled>Imprimer / PDF</button>
       </div>
+      <p id="alerte-trad" class="alerte-trad no-print" hidden>Prototype : traductions préparées à l'avance, à faire valider par un relecteur natif avant la mise en service.</p>
       <article id="document" class="document" aria-live="polite"></article>
     </section>
   </main>
 
   <script src="src/demarches.js"></script>
+  <script src="src/traductions.js"></script>
   <script src="src/cas-de-test.js"></script>
   <script src="src/app.js"></script>
 </body>
